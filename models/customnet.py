@@ -12,7 +12,7 @@ class CustomNet(nn.Module):
         self.conv4 = nn.Conv2d(256, 512, kernel_size=3, padding=1, stride=2)
         self.conv5 = nn.Conv2d(512, 1024, kernel_size=3, padding=1, stride=2)
         self.flatten = nn.Flatten()
-        self.fc1 = nn.Linear(1024, 200) # 200 is the number of classes.
+        self.fc1 = nn.Linear(1024*7*7, 200) # 200 is the number of classes.
 
     def forward(self, x):
         # Apply convolutional layers
