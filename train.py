@@ -54,7 +54,7 @@ if __name__ == "__main__":
     ])
 
     # Load dataset
-    tiny_imagenet_dataset_train = ImageFolder(root='tiny-imagenet/tiny-imagenet-200/train', transform=transform)
+    tiny_imagenet_dataset_train = ImageFolder(root='data/tiny-imagenet-200/train', transform=transform)
     train_loader = torch.utils.data.DataLoader(tiny_imagenet_dataset_train, batch_size=32, shuffle=True)
 
     model = CustomNet().cuda()
@@ -74,13 +74,13 @@ if __name__ == "__main__":
         scheduler.step()
         
         # Save the model at the end of training (not overwriting the best one).
-        model_path = 'models/last_model.pth'
+        model_path = 'checkpoints/last_model.pth'
         torch.save(model.state_dict(), model_path)
 
         if train_accuracy > best_acc:
             best_acc = train_accuracy
             # Saving the new model.
-            model_path = 'models/best_model.pth'
+            model_path = 'checkpoints/best_model.pth'
             torch.save(model.state_dict(), model_path)
             print(f"New best model saved with accuracy: {best_acc:.2f}%")
             

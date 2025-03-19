@@ -48,12 +48,12 @@ if __name__ == "__main__":
     ])
 
     # Load the validation dataset
-    tiny_imagenet_dataset_val = ImageFolder(root='tiny-imagenet/tiny-imagenet-200/val', transform=transform)
+    tiny_imagenet_dataset_val = ImageFolder(root='data/tiny-imagenet-200/val', transform=transform)
     val_loader = torch.utils.data.DataLoader(tiny_imagenet_dataset_val, batch_size=32, shuffle=False)
 
     # Load the trained model
     model = CustomNet().cuda()
-    model.load_state_dict(torch.load('models/best_model.pth'))  # Make sure this matches the file name you saved during training
+    model.load_state_dict(torch.load('checkpoints/best_model.pth'))  # Make sure this matches the file name you saved during training
 
     criterion = nn.CrossEntropyLoss()
     
