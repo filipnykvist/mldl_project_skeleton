@@ -66,7 +66,7 @@ if __name__ == "__main__":
     num_epochs = 10
 
     for epoch in range(1, num_epochs + 1):
-        print(f"\nEpoch {epoch} -------------------")
+        print(f"\nEpoch {epoch} ----------------------")
         
         # Train for one epoch and store the accuracy.
         train_accuracy = train(epoch, model, train_loader, criterion, optimizer)
