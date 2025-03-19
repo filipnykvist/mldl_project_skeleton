@@ -4,6 +4,7 @@ from models.customnet import CustomNet
 from torchvision.datasets import ImageFolder
 import torchvision.transforms as T
 import wandb
+import os
 
 def validate(model, val_loader, criterion):
     model.eval()
@@ -48,7 +49,7 @@ if __name__ == "__main__":
     ])
 
     # Load the validation dataset
-    tiny_imagenet_dataset_val = ImageFolder(root='data/tiny-imagenet-200/val', transform=transform)
+    tiny_imagenet_dataset_val = ImageFolder(root='dataset/tiny-imagenet-200/val', transform=transform)
     val_loader = torch.utils.data.DataLoader(tiny_imagenet_dataset_val, batch_size=32, shuffle=False)
 
     # Load the trained model

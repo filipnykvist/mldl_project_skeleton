@@ -15,7 +15,7 @@ import shutil
 
 # Define the path to the dataset
 dataset_url = 'http://cs231n.stanford.edu/tiny-imagenet-200.zip'  # Replace with the path to your dataset
-dataset_dir = 'dataset/tiny-imagenet'
+dataset_dir = 'dataset/tiny-imagenet-200'
 
 # Send a GET request to the URL
 response = requests.get(dataset_url)
@@ -27,7 +27,7 @@ if response.status_code == 200:
     print('Download and extraction complete!')
 
 # Organize the validation set into subdirectories
-val_dir = os.path.join(dataset_dir, 'tiny-imagenet-200', 'val')
+val_dir = os.path.join(dataset_dir, 'val')
 val_images_dir = os.path.join(val_dir, 'images')
 val_annotations_file = os.path.join(val_dir, 'val_annotations.txt')
 

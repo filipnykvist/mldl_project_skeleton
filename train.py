@@ -54,7 +54,7 @@ if __name__ == "__main__":
     ])
 
     # Load dataset
-    tiny_imagenet_dataset_train = ImageFolder(root='data/tiny-imagenet-200/train', transform=transform)
+    tiny_imagenet_dataset_train = ImageFolder(root='dataset/tiny-imagenet-200/train', transform=transform)
     train_loader = torch.utils.data.DataLoader(tiny_imagenet_dataset_train, batch_size=32, shuffle=True)
 
     model = CustomNet().cuda()
